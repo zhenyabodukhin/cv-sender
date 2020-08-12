@@ -27,16 +27,16 @@ public class CvsenderApplication {
   public void getEmails() throws IOException {
     String fileName = "C:\\Cvsender\\itemail.txt";
     Path path = Paths.get(fileName);
-    Scanner scanner = new Scanner(path);
 
-    scanner.useDelimiter(System.getProperty("line.separator"));
-    while (scanner.hasNext()) {
-      Send(scanner.next());
+    try (Scanner scanner = new Scanner(path)) {
+      scanner.useDelimiter(System.getProperty("line.separator"));
+      while (scanner.hasNext()) {
+        send(scanner.next());
+      }
     }
-    scanner.close();
   }
 
-  public void Send(String to) {
+  private void send(String to) {
     File cv = new File("C:\\Cvsender\\forsender.pdf");
     try {
       emailService.sendEmail("zhenyabodukhin@gmail.com", to, cv);
