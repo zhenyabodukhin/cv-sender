@@ -39,7 +39,7 @@ public class CvsenderApplication {
   public void Send(String to) {
     File cv = new File("C:\\Cvsender\\forsender.pdf");
     try {
-      emailService.sendEmail("Test for Klava", "zhenyabodukhin@gmail.com", to, cv);
+      emailService.sendEmail("zhenyabodukhin@gmail.com", to, cv);
       System.out.println("Отправлено " + to);
     } catch (MessagingException e) {
       System.out.println("Произошла ошибка " + to);
