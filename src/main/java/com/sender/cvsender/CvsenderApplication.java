@@ -25,9 +25,8 @@ public class CvsenderApplication {
 
   @Bean
   public void getEmails() throws IOException {
-    String fileName = "C:\\Cvsender\\itemail.txt";
+    String fileName = "C:\\Cvsender\\itemail1.txt";
     Path path = Paths.get(fileName);
-    send("zhenyabodukhin@mail.ru");
 
     try (Scanner scanner = new Scanner(path)) {
       scanner.useDelimiter(System.getProperty("line.separator"));
